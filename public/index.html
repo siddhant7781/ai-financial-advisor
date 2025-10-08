@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AI Financial Advisor — Prototype</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>AI Financial Advisor — Questionnaire</h1>
+      <p class="muted">Educational prototype: collects a simple profile and returns a rule-based allocation.</p>
+
+      <form id="profileForm">
+        <label>Investment horizon:
+          <select name="horizon">
+            <option value="<2y">&lt;2y</option>
+            <option value="2-5y">2-5y</option>
+            <option value="5-10y" selected>5-10y</option>
+            <option value="10y+">10y+</option>
+          </select>
+        </label>
+
+        <label>Risk tolerance (1 low - 5 high):
+          <input name="risk" type="number" min="1" max="5" value="3" />
+        </label>
+
+        <label>Max drawdown tolerance:
+          <select name="drawdown">
+            <option value="5%">5%</option>
+            <option value="10%">10%</option>
+            <option value="20%+" selected>20%+</option>
+          </select>
+        </label>
+
+        <label>Liquidity need:
+          <select name="liquidity">
+            <option>Monthly</option>
+            <option>Quarterly</option>
+            <option selected>Annual</option>
+          </select>
+        </label>
+
+        <fieldset>
+          <legend>Preference constraints</legend>
+          <label><input type="checkbox" name="constraints" value="Avoid EM" /> Avoid EM</label>
+          <label><input type="checkbox" name="constraints" value="Avoid REITs" /> Avoid REITs</label>
+          <label><input type="checkbox" name="constraints" value="Avoid commodities" /> Avoid commodities</label>
+        </fieldset>
+
+        <label>Goal focus:
+          <select name="goal">
+            <option value="growth">Capital growth</option>
+            <option value="income">Income/stability</option>
+            <option value="balanced" selected>Balanced</option>
+          </select>
+        </label>
+
+        <label>Rebalance frequency:
+          <select name="rebalance">
+            <option>Quarterly</option>
+            <option>Semiannual</option>
+            <option selected>Annual</option>
+          </select>
+        </label>
+
+        <label>Tax sensitivity:
+          <select name="tax">
+            <option>Low</option>
+            <option selected>Medium</option>
+            <option>High</option>
+          </select>
+        </label>
+
+        <label><input type="checkbox" name="useLLM" value="1" /> Use LLM (OpenAI) to generate explanation</label>
+
+        <div class="actions">
+          <button type="submit">Get Recommendation</button>
+        </div>
+      </form>
+
+      <section id="result" class="card hidden">
+        <h2>Recommendation</h2>
+        <pre id="jsonOut"></pre>
+        <div id="explain"></div>
+      </section>
+
+      <section class="card">
+        <h2>ETF Universe (sample)</h2>
+        <ul id="universe"></ul>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
