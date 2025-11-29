@@ -1,0 +1,2012 @@
+{
+  "sessions": {
+    "ec0acb85-6cfd-46b9-bdfd-cb7f41b3abb4": {
+      "history": [
+        {
+          "ts": "2025-10-22T04:06:25.392Z",
+          "payload": {
+            "profile": {
+              "horizon": "5-10y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2272
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0252
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2477
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0826
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0413
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=5-10y, goal=balanced. Equity target 55%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:07:06.268Z",
+          "payload": {
+            "profile": {
+              "horizon": "5-10y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2272
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0252
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2477
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0826
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0413
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=5-10y, goal=balanced. Equity target 55%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:07:17.835Z",
+          "payload": {
+            "profile": {
+              "horizon": "10y+",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2272
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0252
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2477
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0826
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0413
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=10y+, goal=balanced. Equity target 55%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:10:52.800Z",
+          "payload": {
+            "profile": {
+              "horizon": "5-10y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2272
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0252
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2477
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0826
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0413
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=5-10y, goal=balanced. Equity target 55%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:15:06.895Z",
+          "payload": {
+            "profile": {
+              "horizon": "5-10y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2272
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0252
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2477
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0826
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0413
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=5-10y, goal=balanced. Equity target 55%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:19:41.083Z",
+          "payload": {
+            "profile": {
+              "horizon": "5-10y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2272
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0252
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2477
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0826
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0413
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=5-10y, goal=balanced. Equity target 55%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:24:09.483Z",
+          "payload": {
+            "profile": {
+              "horizon": "5-10y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2272
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0252
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2477
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0826
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0413
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=5-10y, goal=balanced. Equity target 55%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:26:47.880Z",
+          "payload": {
+            "profile": {
+              "horizon": "5-10y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2272
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0252
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2477
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0826
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0413
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=5-10y, goal=balanced. Equity target 55%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:28:57.062Z",
+          "payload": {
+            "profile": {
+              "horizon": "5-10y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2272
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0252
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2477
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0826
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0413
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=5-10y, goal=balanced. Equity target 55%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:29:44.872Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2067
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2752
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0917
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=<2y, goal=balanced. Equity target 50%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:33:32.685Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2067
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2752
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0917
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=<2y, goal=balanced. Equity target 50%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:33:36.967Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2067
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2752
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0917
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=<2y, goal=balanced. Equity target 50%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:33:39.511Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2067
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2752
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0917
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=<2y, goal=balanced. Equity target 50%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:33:46.019Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Quarterly",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2067
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2752
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0917
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=<2y, goal=balanced. Equity target 50%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:34:02.812Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Quarterly",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.25
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.05
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.05
+                }
+              ],
+              "rationale": "This allocation aims to balance growth and stability, with a mix of large and small US equities, value stocks, and bonds to mitigate risk. The inclusion of real estate and commodities provides additional diversification, while the cash proxy helps manage liquidity and reduce volatility in the short term.",
+              "risk_notes": "The portfolio is designed for moderate risk tolerance, with a balanced approach to equities and fixed income. The short investment horizon of less than 2 years suggests a cautious stance, hence the allocation to bonds and cash proxies to preserve capital."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:34:05.159Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Quarterly",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.25
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.05
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.05
+                }
+              ],
+              "rationale": "This allocation aims to balance growth and stability, incorporating a mix of large and small US equities, value stocks, and bonds to mitigate risk. The inclusion of real estate and commodities provides additional diversification, while the cash proxy offers liquidity and safety.",
+              "risk_notes": "The portfolio is designed for a moderate risk tolerance, with a balanced approach to equities and fixed income. The short investment horizon of less than 2 years suggests a focus on preserving capital while still seeking some growth potential."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:34:05.342Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Quarterly",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.25
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.1
+                }
+              ],
+              "rationale": "This allocation aims to provide a balanced exposure to both equities and bonds, suitable for a moderate risk profile with a short investment horizon. The inclusion of large and small-cap equities, along with value stocks, offers growth potential while the bond allocations provide stability and income. Gold is included as a hedge against inflation and market volatility.",
+              "risk_notes": "While this allocation is designed to balance growth and stability, it is important to note that equities can be volatile in the short term. The bond components are intended to mitigate some of this risk, but interest rate fluctuations could impact bond performance. Investors should be prepared for potential market fluctuations within the 2-year horizon."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:34:10.541Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Quarterly",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2067
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2752
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0917
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=<2y, goal=balanced. Equity target 50%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:34:14.327Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Quarterly",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2067
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2752
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0917
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=<2y, goal=balanced. Equity target 50%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:34:17.273Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Quarterly",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2067
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2752
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0917
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=<2y, goal=balanced. Equity target 50%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:34:18.835Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Quarterly",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2067
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0688
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2752
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0917
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0459
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0229
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=<2y, goal=balanced. Equity target 50%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:34:24.886Z",
+          "payload": {
+            "profile": {
+              "horizon": "<2y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Quarterly",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.25
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.05
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.05
+                }
+              ],
+              "rationale": "This allocation aims to provide a balanced approach with a mix of equities and bonds, suitable for a moderate risk tolerance and a time horizon of less than 2 years. The inclusion of both large and small-cap equities, along with value stocks, ensures diversification within the equity portion. Bonds are included to mitigate risk, with a focus on aggregate bonds and short-term treasuries to maintain liquidity and stability. Real estate and commodities add further diversification and potential inflation protection.",
+              "risk_notes": "While this allocation is designed to balance growth and stability, it still carries market risk, particularly from equities. The bond allocation helps to reduce volatility, but investors should be aware of interest rate risk associated with bonds, especially in a rising rate environment."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:34:43.163Z",
+          "payload": {
+            "profile": {
+              "horizon": "10y+",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Quarterly",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.25
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.05
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.05
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.05
+                }
+              ],
+              "rationale": "This allocation aims for a balanced approach by diversifying across large and small US equities, value and growth stocks, as well as international equities. The inclusion of bonds and real estate provides stability and income, aligning with a moderate risk profile over a long investment horizon.",
+              "risk_notes": "While the allocation includes equities that can be volatile, the presence of bonds and real estate helps mitigate risk. The investor should be prepared for market fluctuations, especially in the equity portion, but the diversified nature of the portfolio aims to balance potential returns with risk."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:35:15.941Z",
+          "payload": {
+            "profile": {
+              "horizon": "10y+",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Monthly",
+              "goal": "balanced",
+              "rebalance": "Quarterly",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.25
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.1
+                }
+              ],
+              "rationale": "This allocation aims to achieve a balanced portfolio by diversifying across large and small US equities, value and growth stocks, as well as international equities. The inclusion of bonds provides stability and income, which is essential for a long-term investment horizon of 10 years or more.",
+              "risk_notes": "The portfolio has a moderate risk level (3), balancing growth potential with stability through bonds. The equity exposure may lead to higher volatility, but the long investment horizon allows for recovery from market fluctuations."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:35:59.142Z",
+          "payload": {
+            "profile": {
+              "horizon": "5-10y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": false,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.2272
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VWO",
+                  "weight": 0.0252
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.0757
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.0505
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.2477
+                },
+                {
+                  "ticker": "AGG",
+                  "weight": 0.0826
+                },
+                {
+                  "ticker": "IEF",
+                  "weight": 0.0413
+                },
+                {
+                  "ticker": "TIP",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "SHY",
+                  "weight": 0.0206
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.0275
+                },
+                {
+                  "ticker": "GLD",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "DBC",
+                  "weight": 0.0183
+                },
+                {
+                  "ticker": "BIL",
+                  "weight": 0.0183
+                }
+              ],
+              "rationale": "Rule-based allocation for risk=3, horizon=5-10y, goal=balanced. Equity target 55%",
+              "risk_notes": "This is an educational, rule-based suggestion. It does not consider current market data or personalize taxes."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:36:08.432Z",
+          "payload": {
+            "profile": {
+              "horizon": "5-10y",
+              "risk": "3",
+              "drawdown": "20%+",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.25
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.05
+                }
+              ],
+              "rationale": "This allocation aims to balance growth and stability, with a mix of large and small US equities, value and growth stocks, and international exposure. The inclusion of bonds and real estate provides a buffer against volatility, aligning with a moderate risk profile and a 5-10 year investment horizon.",
+              "risk_notes": "The portfolio has a moderate risk level, with a balanced exposure to equities and fixed income. However, market fluctuations can still impact the value, particularly in the equity portion, which may be more volatile than bonds."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:36:25.414Z",
+          "payload": {
+            "profile": {
+              "horizon": "2-5y",
+              "risk": "3",
+              "drawdown": "5%",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.35
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.05
+                }
+              ],
+              "rationale": "This allocation aims to achieve a balanced portfolio by combining large-cap and small-cap US equities, value stocks, and international equities, while also incorporating bonds for stability and real estate for diversification. The weights reflect a moderate risk tolerance and a 2-5 year investment horizon, focusing on growth potential while managing risk.",
+              "risk_notes": "The portfolio includes a mix of equities and bonds, which helps mitigate risk. However, exposure to equities means that there is still potential for volatility, especially in the short term. The inclusion of real estate and international equities adds diversification, but investors should be aware of market fluctuations and geopolitical risks."
+            }
+          }
+        },
+        {
+          "ts": "2025-10-22T04:36:28.219Z",
+          "payload": {
+            "profile": {
+              "horizon": "2-5y",
+              "risk": "3",
+              "drawdown": "5%",
+              "liquidity": "Annual",
+              "goal": "balanced",
+              "rebalance": "Annual",
+              "tax": "Medium",
+              "useLLM": true,
+              "constraints": []
+            },
+            "result": {
+              "allocations": [
+                {
+                  "ticker": "SPY",
+                  "weight": 0.25
+                },
+                {
+                  "ticker": "IJR",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VTV",
+                  "weight": 0.2
+                },
+                {
+                  "ticker": "QQQ",
+                  "weight": 0.15
+                },
+                {
+                  "ticker": "VEA",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "BND",
+                  "weight": 0.1
+                },
+                {
+                  "ticker": "VNQ",
+                  "weight": 0.05
+                }
+              ],
+              "rationale": "This allocation aims for a balanced approach by diversifying across large, small, and value equities while also including international exposure and bonds for stability. The allocation to real estate provides additional diversification and potential income.",
+              "risk_notes": "The portfolio has a moderate risk level (3), balancing growth potential with income and stability through bonds and real estate. The mix of equities and fixed income helps mitigate volatility while aiming for capital appreciation over the 2-5 year horizon."
+            }
+          }
+        }
+      ]
+    }
+  }
+}

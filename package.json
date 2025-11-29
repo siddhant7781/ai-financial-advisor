@@ -16,7 +16,15 @@
   "dependencies": {
     "express": "^4.18.2",
     "axios": "^1.4.0",
-    "dotenv": "^16.1.4"
+    "dotenv": "^16.1.4",
+    "cookie-parser": "^1.4.6",
+    "uuid": "^9.0.0",
+    "better-sqlite3": "^8.4.0",
+    "bcrypt": "^5.1.0",
+    "express-session": "^1.17.3",
+    "connect-sqlite3": "^0.9.0",
+    "pg": "^8.10.0",
+    "connect-pg-simple": "^8.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

@@ -97,3 +97,89 @@ Notes:
 - Cloud Run sets the `PORT` environment variable (default 8080); `server.js` respects `process.env.PORT`.
 - Do not commit secrets. `.env` and `.dockerignore` exclude the `.env` file.
 
+## Deployment preparations (Heroku / Azure / other cloud)
+
+This project runs locally with SQLite by default, but for production you should run with Postgres.
+
+- Set `DATABASE_URL` (Postgres connection string). When `DATABASE_URL` is present the server will:
+  - use Postgres for `users` and `recommendations` tables (migrations applied at startup)
+  - switch session storage to a Postgres-backed store (via `connect-pg-simple`)
+
+- Recommended env vars:
+  - `DATABASE_URL` — Postgres connection string (required for production)
+  - `OPENAI_API_KEY` — enables LLM path for `/api/recommend`
+  - `SESSION_SECRET` — set to a strong secret in production
+  - `DB_SSL=true` — set to `true` on some managed Postgres providers if SSL is required
+
+- Note about persistence: the local SQLite files (`data/app.db`, `data/sessions.sqlite`) are for demos only and will not persist reliably on ephemeral hosting (e.g., Heroku dynos). Use Postgres in production.
+
+Quick Heroku example:
+
+```bash
+heroku addons:create heroku-postgresql:hobby-dev
+heroku config:set SESSION_SECRET="replace-with-strong-secret"
+heroku config:set DB_SSL=true
+git push heroku master
+
+# Ensure migrations run by restarting the app
+heroku restart
+```
+
+After deployment, open the app and use the demo signup/login to create a user and verify recommendations persist in the dashboard history.
+
+## Enhanced AI integration (market context & scenarios)
+
+This prototype includes a lightweight `marketdata.js` helper that fetches public quotes (VIX, IEF, SPY, QQQ, VEA, VWO, BND, VNQ, GLD) from Yahoo Finance to build a short market summary. The server includes this summary in LLM prompts when `useLLM=true`.
+
+- `/api/recommend` — when `useLLM` is true and `OPENAI_API_KEY` is set the LLM prompt now includes the latest market summary (VIX and key ETF snapshots) to help the model provide context-aware rationale.
+- `/api/scenario` — accepts a `scenario` object (e.g., `{ type: 'rate-rise' }`) and returns both the rule-based `result` and `llm_result` (if LLM path was used). Example response:
+
+  {
+    "ok": true,
+    "profile": {...},
+    "result": { ... },
+    "llm_result": { allocations: [...], rationale: "...", risk_notes: "..." }
+  }
+
+This is still a best-effort integration — the LLM path may fail or return non-JSON; the server falls back to the rule-based allocation when needed.
+
+---
+
+## Demo walkthrough (quick)
+
+1. Start the server locally:
+
+```bash
+npm install
+OPENAI_API_KEY="sk-..." npm start
+```
+
+2. Open `http://localhost:3000`.
+3. (Optional) Sign up (`/signup`) and log in (`/login`) using the demo form on the site. When logged in, your recommendations will be saved to the SQLite database and shown in the dashboard history.
+4. Use the questionnaire, check "Use LLM" if you have an OpenAI key, click Get Recommendation, and view the interactive pie + TradingView chart.
+
+## Deploying to Heroku
+
+1. Create a Heroku app and provision any required add-ons (none required for SQLite local file; consider Heroku Postgres for production):
+
+```bash
+heroku create my-ai-financial-advisor
+```
+
+2. Set secrets on Heroku:
+
+```bash
+heroku config:set OPENAI_API_KEY="sk-..."
+heroku config:set SESSION_SECRET="replace-with-strong-secret"
+```
+
+3. Push and deploy:
+
+```bash
+git push heroku master
+heroku open
+```
+
+Notes: Heroku ephemeral filesystem means SQLite will not persist across dyno restarts. For production, use Postgres (and switch `db.js` to use `pg`). The current SQLite approach is suitable for local demos and short-lived deployments.
+
+

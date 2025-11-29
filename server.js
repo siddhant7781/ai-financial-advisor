@@ -9,8 +9,38 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static frontend
-app.use('/', express.static(path.join(__dirname, 'public')));
+// session and auth
+const session = require('express-session');
+const bcrypt = require('bcrypt');
+const db = require('./db');
+
+let sessionStore = null;
+if (process.env.DATABASE_URL) {
+  // use Postgres-backed session store
+  const PgStore = require('connect-pg-simple')(session);
+  sessionStore = new PgStore({ pool: db.pool, tableName: 'session' });
+} else {
+  const SQLiteStore = require('connect-sqlite3')(session);
+  sessionStore = new SQLiteStore({ db: 'sessions.sqlite', dir: './data' });
+}
+
+app.use(session({
+  store: sessionStore,
+  secret: process.env.SESSION_SECRET || 'devsecret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 1000 * 60 * 60 * 24 }
+}));
+
+// helper: attach sessionId and userId
+app.use((req, res, next) => {
+  if (!req.session.sid) req.session.sid = require('uuid').v4();
+  req.sessionId = req.session.sid;
+  req.userId = req.session.userId || null;
+  next();
+});
+
+// Serve static frontend (moved to after API routes to ensure API endpoints are matched first)
 
 // Load universe (hard-coded for prototype)
 const ETF_UNIVERSE = [
@@ -139,62 +169,197 @@ app.get('/api/universe', (req, res) => {
   res.json({ universe: ETF_UNIVERSE });
 });
 
+// Simple auth endpoints
+app.post('/signup', async (req, res) => {
+  const { username, password } = req.body || {};
+  if (!username || !password) return res.status(400).json({ ok: false, error: 'username and password required' });
+  try {
+    const hash = await bcrypt.hash(password, 10);
+    // Support both SQLite (db.type === 'sqlite', db.db) and Postgres (db.type === 'pg', db.pool)
+    if (db.type === 'pg') {
+      const r = await db.query('INSERT INTO users (username, password_hash) VALUES ($1, $2) RETURNING id', [username, hash]);
+      const userId = r.rows && r.rows[0] && r.rows[0].id;
+      req.session.userId = userId;
+      return res.json({ ok: true, userId });
+    }
+
+    // sqlite path: db.db is the better-sqlite3 Database instance
+    const stmt = db.db.prepare('INSERT INTO users (username, password_hash) VALUES (?, ?)');
+    const info = stmt.run(username, hash);
+    // better-sqlite3 returns { lastInsertRowid }
+    req.session.userId = info.lastInsertRowid;
+    res.json({ ok: true, userId: info.lastInsertRowid });
+  } catch (e) {
+    res.status(400).json({ ok: false, error: e.message });
+  }
+});
+
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body || {};
+  if (!username || !password) return res.status(400).json({ ok: false, error: 'username and password required' });
+  try {
+    let row;
+    if (db.type === 'pg') {
+      const r = await db.query('SELECT id, password_hash FROM users WHERE username = $1', [username]);
+      row = r.rows && r.rows[0];
+    } else {
+      row = db.db.prepare('SELECT id, password_hash FROM users WHERE username = ?').get(username);
+    }
+
+    if (!row) return res.status(401).json({ ok: false, error: 'invalid credentials' });
+    const okp = await bcrypt.compare(password, row.password_hash);
+    if (!okp) return res.status(401).json({ ok: false, error: 'invalid credentials' });
+    req.session.userId = row.id;
+    res.json({ ok: true, userId: row.id });
+  } catch (e) {
+    res.status(500).json({ ok: false, error: e.message });
+  }
+});
+
+app.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) return res.status(500).json({ ok: false, error: err.message });
+    res.json({ ok: true });
+  });
+});
+
 // API endpoint: recommend
 app.post('/api/recommend', async (req, res) => {
   const profile = req.body || {};
-
   try {
-    // Always use OpenAI if key is set
-    if (process.env.OPENAI_API_KEY) {
-      const axios = require('axios');
-      const userProfileText = `User profile:\n- risk: ${profile.risk}\n- horizon: ${profile.horizon}\n- goal: ${profile.goal}\n- constraints: ${JSON.stringify(profile.constraints || [])}`;
-      const universeSummary = ETF_UNIVERSE.map(e=>`${e.ticker}: ${e.class}`).join('; ');
-      const system = `You are a financial education assistant. Output ONLY valid JSON with keys: allocations (array of {ticker, weight}), rationale (string), risk_notes (string). Weights must sum to 1.0.`;
-      const user = `${userProfileText}\nEligible ETFs: ${universeSummary}\nReturn a diversified allocation adhering to the constraints.`;
+    let finalResult = null;
+    // Try LLM if key available
+    const marketdata = require('./marketdata');
+    const marketSummary = await (marketdata.summaryText().catch(()=>''));
 
-      const payload = {
-        model: 'gpt-4o-mini',
-        messages: [
-          { role: 'system', content: system },
-          { role: 'user', content: user }
-        ],
-        max_tokens: 800,
-        temperature: 0.2
-      };
-
-      const resp = await axios.post('https://api.openai.com/v1/chat/completions', payload, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
-        },
-        timeout: 15000
-      });
-
-      const text = resp.data?.choices?.[0]?.message?.content;
-      let llmResult = null;
-
+    if (process.env.OPENAI_API_KEY && profile.useLLM) {
       try {
-        const jsonMatch = text.match(/\{[\s\S]*\}/m);
-        const jsonText = jsonMatch ? jsonMatch[0] : text;
-        llmResult = JSON.parse(jsonText);
-      } catch (e) {
-        return res.json({ ok: true, result: ruleBasedAllocation(profile), llm_raw: text, llm_error: 'failed to parse JSON' });
-      }
+        const axios = require('axios');
+        const userProfileText = `User profile:\n- risk: ${profile.risk}\n- horizon: ${profile.horizon}\n- goal: ${profile.goal}\n- constraints: ${JSON.stringify(profile.constraints || [])}`;
+        const universeSummary = ETF_UNIVERSE.map(e=>`${e.ticker}: ${e.class}`).join('; ');
+        const system = `You are a financial education assistant. Output ONLY valid JSON with keys: allocations (array of {ticker, weight}), rationale (string), risk_notes (string). Weights must sum to 1.0. When making allocations, consider the provided market snapshot.`;
+        const user = `${userProfileText}\nMarket summary: ${marketSummary}\nEligible ETFs: ${universeSummary}\nReturn a diversified allocation adhering to the constraints.`;
 
-      if (llmResult && llmResult.allocations) {
-        return res.json({ ok: true, result: llmResult });
+        const payload = {
+          model: 'gpt-4o-mini',
+          messages: [
+            { role: 'system', content: system },
+            { role: 'user', content: user }
+          ],
+          max_tokens: 800,
+          temperature: 0.2
+        };
+
+        const resp = await axios.post('https://api.openai.com/v1/chat/completions', payload, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+          },
+          timeout: 15000
+        });
+
+        const text = resp.data?.choices?.[0]?.message?.content || '';
+        try {
+          const llmUtils = require('./llm_utils');
+          const maybe = llmUtils.extractFirstJson(text);
+          const universeTickers = ETF_UNIVERSE.map(e=>e.ticker);
+          const valid = llmUtils.validateAllocations(maybe, universeTickers);
+          if (valid.ok) {
+            const norm = llmUtils.normalizeAllocations(maybe);
+            finalResult = Object.assign({}, maybe, { allocations: norm.allocations });
+          } else {
+            console.warn('LLM validation failed:', valid.errors.join('; '));
+          }
+        } catch (e) {
+          console.warn('LLM JSON parse/validate failed:', e.message);
+        }
+      } catch (e) {
+        console.warn('LLM call failed', e.message);
       }
     }
 
-    // fallback if no key
-    res.json({ ok: true, result: ruleBasedAllocation(profile) });
+    // fallback to rule-based if LLM not provided or failed
+  if (!finalResult) finalResult = ruleBasedAllocation(profile);
 
+    // save to storage (associate with user if logged in)
+    try {
+      const storage = require('./storage');
+      await storage.saveRecommendation(req.sessionId, { profile, result: finalResult }, req.userId);
+    } catch (e) { console.warn('saveRecommendation failed', e.message); }
+
+    res.json({ ok: true, result: finalResult });
   } catch (err) {
     console.error(err);
     res.status(500).json({ ok: false, error: err.message });
   }
 });
 
+// history endpoint
+app.get('/api/history', (req, res) => {
+  try {
+    const storage = require('./storage');
+    storage.getHistory(req.sessionId, req.userId).then(history => res.json({ ok: true, history })).catch(e=>{
+      res.status(500).json({ ok: false, error: e.message });
+    });
+    return;
+  } catch (e) {
+    res.status(500).json({ ok: false, error: e.message });
+  }
+});
+
+// scenario endpoint
+app.post('/api/scenario', (req, res) => {
+  (async () => {
+    const { scenario, profile } = req.body || {};
+    try {
+      const mod = JSON.parse(JSON.stringify(profile || {}));
+      if (scenario && scenario.type === 'rate-rise') {
+        // simple stress: lower risk tolerance by 1
+        mod.risk = Math.max(1, (Number(mod.risk) || 3) - 1);
+      }
+
+      const baseResult = ruleBasedAllocation(mod);
+
+      // If LLM enabled and key present, ask LLM for scenario-aware allocation + rationale
+      let llmResult = null;
+      try {
+        if (process.env.OPENAI_API_KEY && profile.useLLM) {
+          const marketdata = require('./marketdata');
+          const marketSummary = await marketdata.summaryText().catch(()=>'');
+          const axios = require('axios');
+          const system = `You are a financial education assistant. Output ONLY valid JSON with keys: allocations (array of {ticker, weight}), rationale (string), risk_notes (string). Weights must sum to 1.0. Be explicit about how the scenario changed the allocation.`;
+          const user = `Scenario: ${JSON.stringify(scenario)}\nModified profile: risk=${mod.risk}, horizon=${mod.horizon}, goal=${mod.goal}\nMarket summary: ${marketSummary}\nEligible ETFs: ${ETF_UNIVERSE.map(e=>e.ticker).join(', ')}`;
+          const payload = { model: 'gpt-4o-mini', messages: [{ role: 'system', content: system }, { role: 'user', content: user }], max_tokens: 700, temperature: 0.2 };
+          const resp = await axios.post('https://api.openai.com/v1/chat/completions', payload, { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}` }, timeout: 15000 });
+          const text = resp.data?.choices?.[0]?.message?.content || '';
+          try {
+            const llmUtils = require('./llm_utils');
+            const maybe = llmUtils.extractFirstJson(text);
+            const universeTickers = ETF_UNIVERSE.map(e=>e.ticker);
+            const valid = llmUtils.validateAllocations(maybe, universeTickers);
+            if (valid.ok) {
+              const norm = llmUtils.normalizeAllocations(maybe);
+              llmResult = Object.assign({}, maybe, { allocations: norm.allocations });
+            } else {
+              console.warn('LLM scenario validation failed:', valid.errors.join('; '));
+            }
+          } catch (e) { /* ignore parse errors */ }
+        }
+      } catch (e) { console.warn('LLM scenario call failed', e.message); }
+
+      res.json({ ok: true, profile: mod, result: baseResult, llm_result: llmResult });
+    } catch (e) {
+      res.status(500).json({ ok: false, error: e.message });
+    }
+  })();
+});
+
+
+
+
+// Fallback for SPA
+// Serve static frontend (placed after API endpoints)
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 // Fallback for SPA
 app.get('*', (req, res) => {
