@@ -1,110 +1,160 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>AI Financial Advisor — Prototype</title>
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
-  <body>
-    <main class="container">
-      <h1>AI Financial Advisor — Questionnaire</h1>
-      <p class="muted">Educational prototype: collects a simple profile and returns a rule-based allocation.</p>
-      <form id="profileForm">
-        <label>Investment horizon:
-          <select name="horizon">
-            <option value="<2y">&lt;2y</option>
-            <option value="2-5y">2-5y</option>
-            <option value="5-10y" selected>5-10y</option>
-            <option value="10y+">10y+</option>
-          </select>
-        </label>
 
-        <label>Risk tolerance (1 low - 5 high):
-          <input name="risk" type="number" min="1" max="5" value="3" />
-        </label>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Financial Advisor</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
 
-        <label>Max drawdown tolerance:
-          <select name="drawdown">
-            <option value="5%">5%</option>
-            <option value="10%">10%</option>
-            <option value="20%+" selected>20%+</option>
-          </select>
-        </label>
+<body>
+  <main class="container">
+    <header style="margin-bottom: 2rem; text-align: center;">
+      <h1>AI Financial Advisor</h1>
+      <p class="muted">Smart, personalized investment strategies powered by data and AI.</p>
+    </header>
 
-        <label>Liquidity need:
-          <select name="liquidity">
-            <option>Monthly</option>
-            <option>Quarterly</option>
-            <option selected>Annual</option>
-          </select>
-        </label>
+    <div class="main-layout">
+      <div class="left-panel">
+        <section class="card">
+          <h2>Your Profile</h2>
+          <form id="profileForm">
+            <label>
+              Investment Horizon
+              <select name="horizon">
+                <option value="<2y">&lt; 2 Years</option>
+                <option value="2-5y">2 - 5 Years</option>
+                <option value="5-10y" selected>5 - 10 Years</option>
+                <option value="10y+">10+ Years</option>
+              </select>
+            </label>
 
-        <fieldset>
-          <legend>Preference constraints</legend>
-          <label><input type="checkbox" name="constraints" value="Avoid EM" /> Avoid EM</label>
-          <label><input type="checkbox" name="constraints" value="Avoid REITs" /> Avoid REITs</label>
-          <label><input type="checkbox" name="constraints" value="Avoid commodities" /> Avoid commodities</label>
-        </fieldset>
+            <label>
+              Risk Tolerance (1-5)
+              <input name="risk" type="number" min="1" max="5" value="3" />
+            </label>
 
-        <label>Goal focus:
-          <select name="goal">
-            <option value="growth">Capital growth</option>
-            <option value="income">Income/stability</option>
-            <option value="balanced" selected>Balanced</option>
-          </select>
-        </label>
+            <label>
+              Max Drawdown Tolerance
+              <select name="drawdown">
+                <option value="5%">5% (Conservative)</option>
+                <option value="10%">10% (Moderate)</option>
+                <option value="20%+" selected>20%+ (Aggressive)</option>
+              </select>
+            </label>
 
-        <label>Rebalance frequency:
-          <select name="rebalance">
-            <option>Quarterly</option>
-            <option>Semiannual</option>
-            <option selected>Annual</option>
-          </select>
-        </label>
+            <label>
+              Liquidity Needs
+              <select name="liquidity">
+                <option>Monthly</option>
+                <option>Quarterly</option>
+                <option selected>Annual</option>
+              </select>
+            </label>
 
-        <label>Tax sensitivity:
-          <select name="tax">
-            <option>Low</option>
-            <option selected>Medium</option>
-            <option>High</option>
-          </select>
-        </label>
+            <label>
+              Primary Goal
+              <select name="goal">
+                <option value="growth">Capital Growth</option>
+                <option value="income">Income & Stability</option>
+                <option value="balanced" selected>Balanced</option>
+              </select>
+            </label>
 
-        <label><input type="checkbox" name="useLLM" value="1" /> Use LLM (OpenAI) to generate explanation</label>
+            <label>
+              Rebalance Frequency
+              <select name="rebalance">
+                <option>Quarterly</option>
+                <option>Semiannual</option>
+                <option selected>Annual</option>
+              </select>
+            </label>
 
-        <div class="actions">
-          <button type="submit">Get Recommendation</button>
-        </div>
-      </form>
+            <label>
+              Tax Sensitivity
+              <select name="tax">
+                <option>Low</option>
+                <option selected>Medium</option>
+                <option>High</option>
+              </select>
+            </label>
 
-      <section id="result" class="card hidden">
-        <h2>Recommendation</h2>
-        <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start">
-          <div style="flex:1 1 320px">
-            <canvas id="mainAllocChart" width="320" height="320"></canvas>
-          </div>
-          <div style="flex:1 1 320px">
-            <div id="tv_chart_container" style="width:100%;height:420px;"></div>
-            <div id="explainControls" style="margin-top:8px;">
-              <button id="btnShowRule" disabled>Show Rule</button>
-              <button id="btnShowLLM" disabled>Show LLM</button>
-              <span id="chartMode" style="margin-left:12px">Mode: rule-based</span>
+            <fieldset class="full-width checkbox-group">
+              <legend>Preferences & Constraints</legend>
+              <label><input type="checkbox" name="constraints" value="Avoid EM" /> Avoid Emerging Markets</label>
+              <label><input type="checkbox" name="constraints" value="Avoid REITs" /> Avoid REITs</label>
+              <label><input type="checkbox" name="constraints" value="Avoid commodities" /> Avoid Commodities</label>
+              <div style="margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 0.5rem;">
+                <label><input type="checkbox" name="useLLM" value="1" /> <strong>Enable AI Analysis
+                    (OpenAI)</strong></label>
+              </div>
+            </fieldset>
+
+            <div class="actions">
+              <button type="submit">Get Recommendation</button>
             </div>
-            <div id="explainRule" class="explain-block"></div>
-            <div id="explainLLM" class="explain-block muted"></div>
-          </div>
-        </div>
-      </section>
+          </form>
+        </section>
 
-      <section class="card">
-        <h2>ETF Universe (sample)</h2>
-        <ul id="universe"></ul>
-      </section>
-      
-    </main>
-    <script src="/app.js"></script>
-    <script src="https://s3.tradingview.com/tv.js"></script>
-  </body>
+        <section class="card">
+          <h2>ETF Universe</h2>
+          <p class="muted" style="margin-bottom: 1.5rem;">The set of assets considered for your portfolio.</p>
+          <ul id="universe"></ul>
+        </section>
+      </div>
+
+      <div class="right-panel">
+        <section id="result" class="card">
+          <div id="resultPlaceholder" class="placeholder-state">
+            <div class="placeholder-icon">📊</div>
+            <h3>Ready to Generate</h3>
+            <p>Adjust your profile on the left and click "Get Recommendation" to see your personalized portfolio
+              strategy.</p>
+          </div>
+
+          <div id="resultContent" class="hidden">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+              <h2>Recommended Allocation</h2>
+              <div id="explainControls">
+                <span id="chartMode">Mode: rule-based</span>
+                <button id="btnShowRule" disabled>Rule-Based</button>
+                <button id="btnShowLLM" disabled>AI Model</button>
+              </div>
+            </div>
+
+            <div class="results-grid">
+              <div class="chart-column">
+                <div class="chart-container">
+                  <canvas id="mainAllocChart"></canvas>
+                </div>
+                <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted); text-align: center;">
+                  Click a slice to view chart below
+                </div>
+              </div>
+
+              <div class="details-container">
+                <div id="explain" class="explain-block"></div> <!-- Hidden by default, shown by JS for loading/error -->
+                <div id="explainRule" class="explain-block"></div>
+                <div id="explainLLM" class="explain-block hidden"></div>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+              <h3>Market Data</h3>
+              <div id="tv_chart_container"
+                style="width:100%; height:400px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);">
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+  </main>
+  <script src="/app.js"></script>
+  <script src="https://s3.tradingview.com/tv.js"></script>
+</body>
+
 </html>

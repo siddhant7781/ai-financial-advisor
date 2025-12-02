@@ -1,0 +1,62 @@
+[
+    {
+        "ticker": "SPY",
+        "class": "US Equity (Large)"
+    },
+    {
+        "ticker": "IJR",
+        "class": "US Equity (Small)"
+    },
+    {
+        "ticker": "VTV",
+        "class": "US Equity (Value)"
+    },
+    {
+        "ticker": "QQQ",
+        "class": "US Equity (Growth)"
+    },
+    {
+        "ticker": "VEA",
+        "class": "Intl Equity (Dev)"
+    },
+    {
+        "ticker": "VWO",
+        "class": "Intl Equity (EM)"
+    },
+    {
+        "ticker": "BND",
+        "class": "Bonds (Aggregate)"
+    },
+    {
+        "ticker": "IEF",
+        "class": "Bonds (7-10yr Treasury)"
+    },
+    {
+        "ticker": "TIP",
+        "class": "Bonds (TIPS)"
+    },
+    {
+        "ticker": "SHY",
+        "class": "Bonds (1-3yr Treasury)"
+    },
+    {
+        "ticker": "VNQ",
+        "class": "Real Estate (REITs)"
+    },
+    {
+        "ticker": "GLD",
+        "class": "Commodities (Gold)"
+    },
+    {
+        "ticker": "DBC",
+        "class": "Commodities (Broad)"
+    },
+    {
+        "ticker": "BIL",
+        "class": "Cash Proxy (T-Bills)"
+    },
+    {
+        "ticker": "AGG",
+        "class": "Bonds (Aggregate alt)"
+    }
+]
